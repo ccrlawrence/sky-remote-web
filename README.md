@@ -12,4 +12,4 @@ Ensure the text box at the top of the page contains the IP address of your Sky b
 
 Nothing more to it.
 
-SkyHD and Sky-Q remote skins by DJBenson. To access the Sky-Q remote, append /skyq.html to the URL (e.g. http://localhost:29152/skyq.html).
+SkyHD and Sky-Q remote skins by DJBenson. To access the Sky-Q remote, append /skyq.html to the URL (e.g. `http://localhost:29152/skyq.html`).
