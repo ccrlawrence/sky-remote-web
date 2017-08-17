@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SkyQRemote</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="sky-remote2.js"></script>
+    <script type="text/javascript" src="jquery.maphilight.js"></script>
+    <script type="text/javascript">
+        $('.skyremote').maphilight.defaults = {
+            fill: true,
+            fillColor: 'FFFF00',
+            fillOpacity: 0.2,
+            stroke: true,
+            strokeColor: 'FFFF00',
+            strokeOpacity: 0.1,
+            strokeWidth: 10,
+            fade: true,
+            alwaysOn: false,
+            neverOn: false,
+            groupBy: false,
+            wrapClass: true,
+            shadow: false,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 6,
+            shadowColor: '000000',
+            shadowOpacity: 0.2,
+            shadowPosition: 'outside',
+            shadowFrom: false
+        }
+        $(function() {
+            $('.skyremote').maphilight()
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <label for='ip'>IP</label>
+        <input id='ip' type='text' value='192.168.1.11'>
+    </div>
+    <hr>
+    <img class="skyremote" id="image" src="skyq.jpg" alt="" usemap="#Map" />
+    <map name="Map" id="Map">
+    	<area target="" alt="Sky" title="Sky" onClick="skyButton('sky'); return false;" href="#" coords="180,137,270,84" shape="rect">
+    	<area target="" alt="Power" title="Power" onClick="skyButton('power'); return false;" href="#" coords="132,181,29" shape="circle">
+    	<area target="" alt="Search" title="Search" onClick="skyButton('search'); return false;" href="#" coords="315,184,29" shape="circle">
+    	<area target="" alt="Select" title="Select" onClick="skyButton('select'); return false;" href="#" coords="224,418,33" shape="circle">
+    	<area target="" alt="Back" title="Back" onClick="skyButton('backup'); return false;" href="#" coords="114,542,27" shape="circle">
+    	<area target="" alt="Apps" title="Apps" onClick="skyButton('sidebar'); return false;" href="#" coords="333,540,27" shape="circle">
+    	<area target="" alt="Mute" title="Mute" onClick="notSupported('mute'); return false;" href="#" coords="187,673,27" shape="circle">
+    	<area target="" alt="Info" title="Info" onClick="skyButton('i'); return false;" href="#" coords="262,672,26" shape="circle">
+    	<area target="" alt="Record" title="Record" onClick="skyButton('record'); return false;" href="#" coords="224,734,25" shape="circle">
+    	<area target="" alt="Volume+" title="Volume+" onClick="notSupported('volumeup'); return false;" href="#" coords="113,650,27" shape="circle">
+    	<area target="" alt="Volume-" title="Volume-" onClick="notSupported('volumedown'); return false;" href="#" coords="113,732,27" shape="circle">
+    	<area target="" alt="Channel+" title="Channel+" onClick="skyButton('channelup'); return false;" href="#" coords="335,650,28" shape="circle">
+    	<area target="" alt="Channel-" title="Channel-" onClick="skyButton('channeldown'); return false;" href="#" coords="337,731,29" shape="circle">
+    	<area target="" alt="Red" title="Red" onClick="skyButton('red'); return false;" href="#" coords="112,806,29" shape="circle">
+    	<area target="" alt="Green" title="Green" onClick="skyButton('green'); return false;" href="#" coords="188,808,27" shape="circle">
+    	<area target="" alt="Yellow" title="Yellow" onClick="skyButton('yellow'); return false;" href="#" coords="261,808,27" shape="circle">
+    	<area target="" alt="Blue" title="Blue" onClick="skyButton('blue'); return false;" href="#" coords="336,808,26" shape="circle">
+    	<area target="" alt="1" title="1" onClick="skyButton('1'); return false;" href="#" coords="125,883,28" shape="circle">
+    	<area target="" alt="2" title="2" onClick="skyButton('2'); return false;" href="#" coords="224,884,30" shape="circle">
+    	<area target="" alt="3" title="3" onClick="skyButton('3'); return false;" href="#" coords="322,884,31" shape="circle">
+        <area target="" alt="4" title="4" onClick="skyButton('4'); return false;" href="#" coords="125,963,30" shape="circle">
+        <area target="" alt="5" title="5" onClick="skyButton('5'); return false;" href="#" coords="224,963,31" shape="circle">
+        <area target="" alt="6" title="6" onClick="skyButton('6'); return false;" href="#" coords="322,961,31" shape="circle">
+        <area target="" alt="7" title="7" onClick="skyButton('7'); return false;" href="#" coords="127,1042,29" shape="circle">
+        <area target="" alt="8" title="8" onClick="skyButton('8'); return false;" href="#" coords="224,1041,32" shape="circle">
+        <area target="" alt="9" title="9" onClick="skyButton('9'); return false;" href="#" coords="322,1040,32" shape="circle">
+        <area target="" alt="0" title="0" onClick="skyButton('0'); return false;" href="#" coords="224,1121,32" shape="circle">
+        <area target="" alt="Source" title="Source" onClick="notSupported('source'); return false;" href="#" coords="126,1121,26" shape="circle">
+        <area target="" alt="Help" title="Help" onClick="skyButton('help'); return false;" href="#" coords="322,1120,27" shape="circle">
+        <area target="" alt="Rewind" title="Rewind" onClick="skyButton('rewind'); return false;" href="#" coords="92,298,105,279,121,268,138,263,154,270,160,282,160,295,151,304,130,318,113,324,96,316" shape="poly">
+        <area target="" alt="Play/Pause" title="Play/Pause" onClick="skyButton('play'); return false;" href="#" coords="185,243,210,238,239,237,264,244,274,257,273,268,266,280,251,281,230,276,214,276,196,283,178,276,175,255" shape="poly">
+        <area target="" alt="FastForward" title="FastForward" onClick="skyButton('fastforward'); return false;" href="#" coords="319,263,345,280,356,294,357,308,349,318,337,319,321,317,306,306,294,293,289,280,291,268,305,261" shape="poly">
+        <area target="" alt="Home" title="Home" onClick="skyButton('home'); return false;" href="#" coords="188,603,208,606,226,608,242,609,257,603,268,598,275,584,274,571,267,562,253,556,235,559,218,558,204,557,190,557,180,564,172,578,177,595" shape="poly">
+        <area target="" alt="Up" title="Up" onClick="skyButton('up'); return false;" href="#" coords="187,367,203,364,218,362,238,361,255,365,268,360,264,345,251,332,235,322,225,316,211,323,196,332,183,345,181,357" shape="poly">
+        <area target="" alt="Right" title="Right" onClick="skyButton('right'); return false;" href="#" coords="301,379,313,391,319,400,326,411,326,424,319,439,309,450,299,457,287,460,277,449,280,427,281,406,278,389,283,379,291,376" shape="poly">
+        <area target="" alt="Down" title="Down" onClick="skyButton('down'); return false;" href="#" coords="179,486,189,499,201,506,220,519,236,516,247,512,255,499,266,489,265,476,256,471,237,475,220,476,202,472,193,472,180,475" shape="poly">
+        <area target="" alt="Left" title="Left" onClick="skyButton('left'); return false;" href="#" coords="154,374,136,388,128,401,121,415,125,428,131,436,138,446,145,456,159,463,169,457,169,442,165,424,164,411,166,398,169,387,166,379" shape="poly">
+    </map>
+</body>
+
+</html>
