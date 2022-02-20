@@ -13,4 +13,4 @@ Access the new UI design at `http://<IP>:29152/skyq1.html`.
 
 #### Preview
 
-![Preview](remote.png?raw=true "Preview")
+![Preview](remote.png?raw=true | width=250)
