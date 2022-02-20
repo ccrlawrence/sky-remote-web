@@ -8,4 +8,4 @@ The map highlight function did not work on iOS devices after a couple of clicks,
 
 Ensure you have the IP adresses of your Sky boxes in lines 43-44 of `webroot\skyq1.html`.
 
-Access the new UI design at `http://<IP>:29152/skyqq.html`.
+Access the new UI design at `http://<IP>:29152/skyq1.html`.
