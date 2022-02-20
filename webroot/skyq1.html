@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SkyQRemote</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="sky-remote2.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="skyq1.css">
+    <script type="text/javascript">
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+                currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+        }
+
+        function goToRecordings() {
+            skyButton('home');
+            sleep(300);
+            skyButton('down');
+            sleep(500);
+            skyButton('down');
+            sleep(1000);
+            skyButton('right');
+            sleep(1000);
+            skyButton('right');
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container overflow-auto">
+        <div class="d-flex flex-row justify-content-between px-3 py-4 align-items-center">
+            <label for='ip'>IP</label>
+            <select id='ip'>
+                <option value="192.168.0.101" selected>Mini</option>
+                <option value="192.168.0.102">2TB</option>
+            </select>
+            <i class="fas fa-ellipsis-h"></i>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between px-4">
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('power'); return false;">
+                <i class="fas fa-power-off p-4"></i>
+            </div>
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('sky'); return false;" >
+                <i class="fa-solid fa-cloud p-4"></i>
+            </div>
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('search'); return false;">
+                <i class="fa-solid fa-magnifying-glass p-4"></i>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between pt-2 px-4">
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('rewind'); return false;">
+                <i class="fa-solid fa-backward p-4"></i>
+            </div>
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('play'); return false;">
+                <i class="fa-solid fa-play p-4"></i>
+            </div>
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('fastforward'); return false;">
+                <i class="fa-solid fa-forward p-4"></i>
+            </div>
+        </div>
+
+        <!-- Separator row -->
+        <div class="mt-5 pt-4 position-relative d-flex flex-row justify-content-center align-items-center"></div>
+        <!-- Arrows -->
+        <div class="m-3 p-4 position-relative d-flex flex-row justify-content-center align-items-center">
+            <div class="circle ok-outer position-absolute"></div>
+            <div class="circle ok-inner position-absolute" onClick="skyButton('select'); return false;">
+                <span>OK</span>
+            </div>
+            
+            <i class="fas fa-caret-right position-absolute control-icon p-4 right" onClick="skyButton('right'); return false;"></i>
+            <i class="fas fa-caret-right position-absolute control-icon p-4 bottom" onClick="skyButton('down'); return false;"></i>
+            <i class="fas fa-caret-right position-absolute control-icon p-4 left" onClick="skyButton('left'); return false;"></i>
+            <i class="fas fa-caret-right position-absolute control-icon p-4 top" onClick="skyButton('up'); return false;"></i>
+        </div>
+
+        <!-- Backup/home  -->
+        <div class="d-flex flex-row justify-content-between px-4 pt-5 mt-5">
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('backup'); return false;">
+                <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 p-4"></i>
+                <!-- <span class="label">Power</span> -->
+            </div>
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('home'); return false;" >
+                <i class="fa-solid fa-house p-4"></i>
+            </div>
+            <div class="d-flex flex-column align-items-center grey-bg" onClick="skyButton('sidebar'); return false;">
+                <i class="fa-solid fa-ellipsis p-4"></i>
+            </div>
+        </div>
+
+        <!-- Vol/Channel Buttons -->
+        <div class="d-flex flex-row justify-content-between px-4 pt-2">
+            <div class="d-flex flex-column rounded-bg py-3 px-3 justify-content-center align-items-center">
+                <i class="fas fa-plus py-3 control-icon"></i>
+                <span class="label py-3">Volume</span>
+                <i class="fas fa-minus py-3 control-icon"></i>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+                <div class="mt-4 d-flex flex-row grey-bg justify-content-center align-items-center" onClick="skyButton('i'); return false;">
+                    <i class="p-3 fa-solid fa-circle-info"></i>
+                </div>
+                <span class="label">Info</span>
+                <div class="mt-4 d-flex flex-row grey-bg justify-content-center align-items-center" onClick="skyButton('record'); return false;">
+                    <i class="fa-solid fa-registered p-3"></i>
+                </div>
+                <span class="label">Record</span>
+            </div>
+            <div class="d-flex flex-column rounded-bg py-3 px-3 justify-content-center align-items-center">
+                <i class="fas fa-chevron-up py-3 control-icon" onClick="skyButton('channelup'); return false;"></i>
+                <span class="label py-3">Channel</span>
+                <i class="fas fa-chevron-down py-3 control-icon" onClick="skyButton('channeldown'); return false;"></i>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between pt-4 px-3">
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('red'); return false;" style="color:red">
+                <i class="fa-solid fa-circle p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('green'); return false;" style="color:green">
+                <i class="fa-solid fa-circle p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('yellow'); return false;" style="color:yellow">
+                <i class="fa-solid fa-circle p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('blue'); return false;" style="color:blue">
+                <i class="fa-solid fa-circle p-3"></i>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between pt-4 px-3">
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('1'); return false;">
+                <i class="fa-solid fa-1 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('2'); return false;">
+                <i class="fa-solid fa-2 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('3'); return false;">
+                <i class="fa-solid fa-3 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('4'); return false;">
+                <i class="fa-solid fa-4 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('5'); return false;">
+                <i class="fa-solid fa-5 p-3"></i>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between pt-4 px-3">
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('6'); return false;">
+                <i class="fa-solid fa-6 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('7'); return false;">
+                <i class="fa-solid fa-7 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('8'); return false;">
+                <i class="fa-solid fa-8 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('9'); return false;">
+                <i class="fa-solid fa-9 p-3"></i>
+            </div>
+            <div class="d-flex flex-row grey-bg" onClick="skyButton('0'); return false;">
+                <i class="fa-solid fa-0 p-3"></i>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between pt-4 px-3 align-items-center">
+            <div class="d-flex flex-row grey-bg rounded-bg p-3" onClick="goToRecordings(); return false;">
+                Recordings
+            </div>
+        </div>
+        <div class="d-flex flex-row p-2"></div>
+        
+    </div>
+</body>
+
+</html>
