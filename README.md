@@ -6,11 +6,11 @@ The map highlight function did not work on iOS devices after a couple of clicks,
 
 #### Usage
 
-Ensure you have the IP adresses of your Sky boxes in lines 43-44 of `webroot\skyq1.html`.
+Ensure you have the IP adresses of your Sky boxes in lines 43-44 of `webroot/skyq1.html`.
 
 Access the new UI design at `http://<IP>:29152/skyq1.html`.
 
 
 #### Preview
 
-![Preview](remote.png?raw=true | width=250)
+<img src="remote.png" width="300">
