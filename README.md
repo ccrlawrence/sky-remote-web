@@ -2,14 +2,10 @@
 
 Web interface for sending remote control commands to a Sky TV box.
 
-It is basic and *was* ugly, but functional.
+The map highlight function did not work on iOS devices after a couple of clicks, so it now has a UI inspired heavily by ui-code's [RemoteControl](https://github.com/ui-code/RemoteControl).
 
 #### Usage
 
-Just start the script, and then open a browser at `http://localhost:29152`.
+Ensure you have the IP adresses of your Sky boxes in lines 43-44 of `webroot\skyq1.html`.
 
-Ensure the text box at the top of the page contains the IP address of your Sky box.
-
-Nothing more to it.
-
-SkyHD and Sky-Q remote skins by DJBenson. To access the Sky-Q remote, append /skyq.html to the URL (e.g. `http://localhost:29152/skyq.html`).
+Access the new UI design at `http://<IP>:29152/skyqq.html`.
